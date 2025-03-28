@@ -391,12 +391,12 @@ impl Widget for VirtualList {
         }
         let vertical = self
             .vertical_scroll
-            .expect_made_mut()
+            .make_if_needed()
             .mounted(&mut context.as_event_context());
         context.for_other(&vertical).redraw();
         let horizontal = self
             .horizontal_scroll
-            .expect_made_mut()
+            .make_if_needed()
             .mounted(&mut context.as_event_context());
         context.for_other(&horizontal).redraw();
     }
